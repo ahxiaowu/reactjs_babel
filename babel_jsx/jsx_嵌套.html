@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="./build/react.js"></script>
+<script src="./build/react-dom.js"></script>
+<script src="./build/browser.js"></script>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+   
+    var Message = React.createClass({
+        render:function(){
+            return (
+                <h1>欢迎您来到：<Bj/></h1>
+            );
+        }
+    });
+
+    var Bj = React.createClass({
+        render:function(){
+            return(
+                <span>北京</span>
+            );
+        }
+    });
+
+
+
+    ReactDOM.render(
+        <Message/>,
+        document.getElementById('app'),
+        function(){
+            console.log('完成');
+        }
+    );
+
+</script>
+
+</body>
+</html>

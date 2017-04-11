@@ -1,0 +1,40 @@
+1.在一个空目录中
+npm init  一路回车
+
+2.安装 babel-cli
+npm install --save-dev babel-cli
+
+3.查看是否安装成功
+./node_modules/.bin/babel -help
+
+4.安装 babel-preset-latest 这个是将es6转化为es5来执行
+npm install --save-dev babel-preset-latest
+安装完毕后在根目创建 .babelrc 文件
+{
+    "presets" : ["latest"]
+}
+
+5.测试babel是否生效
+node_modules\.bin\babel main.js
+
+6.安装浏览器可以直接支持的组件 babel-core@5
+npm install babel-core@5
+
+这样在html页面中引入以下的JS就可以写es6的语法了
+<script src="./node_modules/babel-core/browser.js"></script>
+<script src="./node_modules/babel-core/browser-polyfill.js"></script>
+<script type="text/babel" src="./main.js"></script>
+
+
+7.安装jspm组件
+npm install jspm 
+node_modules\.bin\jspm init
+
+这样就可以支持包的导入了export 和 import就可以使用了
+<script src="./node_modules/babel-core/browser.js"></script>
+<script src="./node_modules/babel-core/browser-polyfill.js"></script>
+<script src="./jspm_packages/system.js"></script>
+<script src="./config.js"></script>
+<script>
+    System.import('main'); // main.js
+</script>

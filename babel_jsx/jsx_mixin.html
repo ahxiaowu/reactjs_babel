@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="./build/react.js"></script>
+<script src="./build/react-dom.js"></script>
+<script src="./build/browser.js"></script>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+
+    var fn = {
+        clickEvent:function(data){
+            console.log(data);
+        }
+    };
+
+    var Message = React.createClass({
+        mixins:[fn],
+        render:function(){
+            return (
+                <div>
+                    <button onClick={() => this.clickEvent('Message')}>Message的btn</button>
+                    <Child/>
+                </div>
+            );
+        }
+    });
+
+    var Child = React.createClass({
+        mixins:[fn],
+        render:function(){
+            return (
+                <button onClick={() => this.clickEvent('Child')}>Child的btn</button>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <Message/>,
+        document.getElementById('app'),
+        function(){
+            console.log('Ok');
+        }
+    );
+
+</script>
+
+</body>
+</html>

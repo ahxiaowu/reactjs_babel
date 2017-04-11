@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .showbox{
+            width: 200px;height: 100px;line-height: 100px;margin-top: 10px;padding: 5px;
+            border: 1px solid #ccc;border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<script src="./build/react.js"></script>
+<script src="./build/react-dom.js"></script>
+<script src="./build/browser.js"></script>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+    /**
+     * 双向绑定数据流
+     */
+
+    var Message = React.createClass({
+        getInitialState:function(){
+            return ({
+                content:''
+            });
+        },
+        changeEvent:function(e){
+            this.setState({
+                content:e.target.value
+            });
+        },
+        render:function(){
+            return (
+                <div>
+                    <input type="text" value={this.state.content} onChange={this.changeEvent}/>
+                    <Show content={this.state.content}/>
+                </div>
+                
+            );
+        }
+    });
+
+    var Show = React.createClass({
+        render:function(){
+            return (
+                <div className="showbox">{this.props.content}</div>
+            );
+        }
+    });
+
+
+    ReactDOM.render(
+        <Message/>,
+        document.getElementById('app'),
+        function(){
+            console.log('Ok');
+        }
+    );
+
+</script>
+
+</body>
+</html>

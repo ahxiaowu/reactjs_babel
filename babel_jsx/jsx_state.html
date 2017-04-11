@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="./build/react.js"></script>
+<script src="./build/react-dom.js"></script>
+<script src="./build/browser.js"></script>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+   
+   /**
+    * 组件状态 state
+    * 每一次state内的值发生改变了时候，都会从新执行render方法，来进行渲染
+    * diff 算法，会来计算哪里发生了改变，只重新渲染改变的地方
+    */
+
+    var Message = React.createClass({
+        // 初始化state
+        getInitialState:function(){
+            return ({
+                name:'小华你好'
+            });
+        },
+        chageState:function(){
+            // 改变name 的值
+            this.setState({
+                name:'小红'
+            });
+        },
+        render:function(){
+            return (
+                // 获得state内的值
+                <h1 onClick={this.chageState}>欢迎您：{this.state.name}</h1>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <Message/>,
+        document.getElementById('app'),
+        function(){
+            console.log('完成');
+        }
+    );
+
+</script>
+
+</body>
+</html>

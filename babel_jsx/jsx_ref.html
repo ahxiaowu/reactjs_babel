@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="./build/react.js"></script>
+<script src="./build/react-dom.js"></script>
+<script src="./build/browser.js"></script>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+   
+   /**
+    * ref
+    * ref 相当于我们CSS中的ID
+    */
+
+    var Message = React.createClass({
+
+        clickEvent:function(){
+            //console.log(this.refs['input'].value);
+            console.log(this.refs.input.value);
+        },
+        render:function(){
+            return (
+                <div>
+                    <input ref="input" type="text" value="小明你好" onChange={() => {}} />
+                    <button onClick={this.clickEvent}>点击获取input内的值</button>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <Message/>,
+        document.getElementById('app'),
+        function(){
+            console.log('完成');
+        }
+    );
+
+</script>
+
+</body>
+</html>

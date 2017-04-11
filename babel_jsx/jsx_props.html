@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="./build/react.js"></script>
+<script src="./build/react-dom.js"></script>
+<script src="./build/browser.js"></script>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+   
+   /**
+    * 组件通讯 props
+    * 原则： 大多数情况下是父组件和同子组件进行通讯的
+    */
+
+    var Message = React.createClass({
+
+        changeText:function(){
+            alert('我被子组件调用了');
+        },
+        render:function(){
+            return (
+                <h1>父组件 {this.props.name} - <Child changeText={this.changeText} name="xw"/></h1>
+            );
+        }
+    });
+
+    var Child = React.createClass({
+
+        render:function(){
+            return (
+                <span onClick={this.props.changeText}>子组件中接受到了：{this.props.name}</span>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <Message name="xxxx"/>,
+        document.getElementById('app'),
+        function(){
+            console.log('完成');
+        }
+    );
+
+</script>
+
+</body>
+</html>

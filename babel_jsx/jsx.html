@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="./build/react.js"></script>
+<script src="./build/react-dom.js"></script>
+<script src="./build/browser.js"></script>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+    
+    var style = {
+        background:'green'
+    }
+    
+    // 创建第一个组件
+    var Message = React.createClass({
+        render:function(){
+            /*
+            if(true){
+                return (
+                    <h1>网站</h1>
+                );
+            }
+            */
+            return (
+                <div>
+                    {
+                        // true ? <h1>小明你好</h1> : <h2>后天就是</h2>
+                        false || <h1>||来看看比较运算符</h1>
+                    }
+                </div>
+            );
+        }
+    });
+
+    // 渲染组件
+    ReactDOM.render(
+        // 我们要渲染的组件
+        <div style={style}>
+            <Message/>
+        </div>,
+        // 我们想要把组件渲染到什么位置
+        document.getElementById('app'),
+        // 渲染成功的回调函数
+        function(){
+            console.log('完成');
+        }
+    );
+</script>
+
+</body>
+</html>
