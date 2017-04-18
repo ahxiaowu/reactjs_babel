@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React第一个例子</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/babel">
+    var Message = React.createClass({
+
+        getInitialState:function () {
+            return ({
+                secondNum:0
+            });
+        },
+        tick:function () {
+            this.setState({
+                secondNum:this.state.secondNum+1
+            });
+        },
+        componentDidMount:function () {
+            this.interval = setInterval(this.tick,1000);
+        },
+        componentWillUnmount:function () {
+            clearInterval(this.interval);
+        },
+        render:function () {
+            return <h1>Hello {this.state.secondNum} ! </h1>;
+        }
+    });
+
+    ReactDOM.render(
+            <Message/>,
+            document.getElementById('app')
+    );
+
+</script>
+</body>
+</html>

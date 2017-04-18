@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flexbox布局</title>
+    <style>
+        html{height: 100%;}
+        body{
+            display: -webkit-flex;
+            display: flex;
+            /*垂直居中*/
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+            /*水平居中*/
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+
+            margin:0;
+            height: 100%;
+            width:100%;
+        }
+        #box1{
+            background: red;
+            height:100px;
+            width:80px;
+            /*flex-grow: 1;*/
+            /*flex-shrink: 1;*/
+        }
+        #box2{
+            background: yellow;
+            height:100px;
+            width:80px;
+            /*flex-grow: 2;*/
+            /*flex-shrink: 2;*/
+        }
+        #box3{
+            background: green;
+            height:100px;
+            width:80px;
+            /*order:-1;*/
+            /*flex-grow: 1;*/
+            /*flex-shrink: 1;*/
+            /*flex-basis: 200px;*/
+            /*flex:0 1 auto;*/
+            /*align-self: auto;*/
+            /*align-self: flex-start;*/
+            /*align-self: flex-end;*/
+            /*align-self: center;*/
+            /*align-self: baseline;*/
+            /*如果交叉轴为垂直方向的话，只有在不设置高度的情况下才能看到效果*/
+            /*align-self: stretch;*/
+        }
+    </style>
+</head>
+<body>
+<div id="box1">第一个</div>
+<div id="box2">第二个</div>
+<div id="box3">第三个</div>
+<div>
+    <p>
+        1.alignItems 容器 - 纵轴方向<br>
+        flex-start | flex-end | center | stretch
+    </p>
+    <p>
+        2.alignSelf 项目 - 纵轴方向<br>
+        auto | flex-start | flex-end | center | stretch
+    </p>
+    <p>
+        3.flex 项目 <br>
+        是flex-grow flex-shrink flex-basic 三个属性的缩写 默认值为 0 1 auto
+    </p>
+
+    <p>
+        4.flexDirection 容器-主轴线的方向 <br>
+        row | row-reverse | column | column-revese
+    </p>
+    <p>
+        5.flexWrap 容器 - 是否换行 <br>
+    </p>
+    <p>
+        6.justifyContent 容器 - 水平居中 <br>
+
+    </p>
+
+</div>
+</body>
+</html>
